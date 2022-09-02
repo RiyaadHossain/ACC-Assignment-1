@@ -43,6 +43,7 @@ module.exports.saveUser = (req, res) => {
             res.status(403).json({ error: "Id is already Exist" })
         } else if (typeof Number(Id) === "number" && Number(Id) > 0) {
             parsedData.push({ Id, gender, name, contact, address, photoUrl })
+            fs.writeFileSync("data.json", JSON.stringify(parsedData))
             res.status(201).json({ message: "Your data has been saved successfully." })
         } else {
             res.status(403).json({ error: "The Id you privided isn't correct!" })
@@ -66,5 +67,16 @@ module.exports.updateRandomUsers = (req, res) => {
 
 // 6. Delete a User________________________
 module.exports.deleteUser = (req, res) => {
-
+    const { Id } = req.body
+    const selectedUser = parsedData.filter(user => user.Id !== Number(Id))
+    console.log(selectedUser);
+    if (!typeof Number(Id) === "number") {
+        res.status(403).json({ error: "Please provide the correct Id" })
+    }
+    else if (selectedUser) {
+        fs.writeFileSync("data.json", JSON.stringify(selectedUser))
+        res.status(201).send({ message: "User deleted successfully." })
+    } else {
+        res.status(403).json({ error: "User not found! Please type the correct Id." })
+    }
 }
