@@ -4,6 +4,7 @@ const userRoute = require("./router/userRoute")
 
 const app = express()
 
+app.use(express.json())
 app.use("/user", userRoute)
 
 app.get("/", (req, res) => {
