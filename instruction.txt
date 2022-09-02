@@ -27,18 +27,18 @@ Get a random user from the .json file
 *BONUS: validate the body and check if all the required properties are present in the body.
 
 
-4.PATCH /user/update Update a random user
+4.PATCH /user/update Update a random user ✅
 #Task: Update a user's information in the .json file using its id
 *BONUS: validate the user id
 
 
-5.PATCH /user/bulk-update update multiple users
+5.PATCH /user/bulk-update update multiple users 
 Update multiple users' information in the .json file
 #Task: Take an array of user ids and assign it to the body.
 *BONUS: validate the body.
 
 
-6.DELETE /user/ delete
+6.DELETE /user/ delete ✅
 #Task: Delete a user from the .json file using its id
 *BONUS: validate the user id
 
