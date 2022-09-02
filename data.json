@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "gender": "male",
+    "name": "Riyad",
+    "contact": 1703790978,
+    "address": "Lohagara, Narail",
+    "photoUrl": "https://www.myphoto.com/riyad"
+  },
+  {
+    "Id": 2,
+    "gender": "male",
+    "name": "Shuvo",
+    "contact": 1360394078,
+    "address": "Lohagara, Narail",
+    "photoUrl": "https://www.myphoto.com/shuvo"
+  },
+  {
+    "Id": 3,
+    "gender": "male",
+    "name": "Sangram",
+    "contact": 1707530978,
+    "address": "Lohagara, Narail",
+    "photoUrl": "https://www.myphoto.com/sangram"
+  }
+]
