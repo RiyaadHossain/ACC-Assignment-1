@@ -21,6 +21,15 @@ module.exports.randomUser = (req, res) => {
 // 2. Get All Users________________________
 module.exports.allUser = (req, res) => {
 
+    const {limit} = req.query
+    const data = fs.readFileSync("data.json")
+
+    if (data) {
+        const parsedData = JSON.parse(data)
+        const selectedData = parsedData.splice(0, limit)
+        res.status(200).json({ data: selectedData })
+    }
+
 }
 
 // 3. Save a User________________________

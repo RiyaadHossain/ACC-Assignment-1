@@ -13,11 +13,11 @@ Your assignment is to create an API that generates random user data. The random 
 Your API should have a .json file. You will perform CRUD operations on the .json file using Express and the file system module. You are required to use the following endpoints to perform the operation:-
 
 
-1.GET /user/random A random user
+1.GET /user/random A random user ✅
 Get a random user from the .json file
 
 
-2.GET /user/all A list of random users
+2.GET /user/all A list of random users ✅
 #Task: Get all the users from the .json file
 *BONUS: Limit the number of users using query parameter(s)
 
