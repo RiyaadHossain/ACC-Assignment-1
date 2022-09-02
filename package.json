@@ -1,0 +1,21 @@
+{
+  "name": "assignment-1",
+  "version": "1.0.0",
+  "description": "In this project, I have written the first assignment of Programming Hero.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "server",
+    "javaScript",
+    "node",
+    "express"
+  ],
+  "author": "Riyad Hossain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
