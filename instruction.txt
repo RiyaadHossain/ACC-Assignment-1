@@ -22,7 +22,7 @@ Get a random user from the .json file
 *BONUS: Limit the number of users using query parameter(s)
 
 
-3.POST /user/save Save a random user
+3.POST /user/save Save a random user ✅
 #Task: Save a user in the .json file
 *BONUS: validate the body and check if all the required properties are present in the body.
 
