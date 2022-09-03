@@ -1,6 +1,6 @@
 import express from "express"
-const PORT = process.env.PORT || 5000
 import userRoute from "./router/userRoute"
+const PORT = process.env.PORT || 5000
 
 const app = express()
 

@@ -5,7 +5,7 @@ let data = readFileSync(file)
 let parsedData = JSON.parse(data)
 
 // 1. Get Random User________________________
-export const randomUser = (req, res) => {
+const randomUser = (req, res) => {
 
     const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -21,7 +21,7 @@ export const randomUser = (req, res) => {
 }
 
 // 2. Get All Users________________________
-export const allUser = (req, res) => {
+const allUser = (req, res) => {
 
     const { limit } = req.query
 
@@ -36,7 +36,7 @@ export const allUser = (req, res) => {
 }
 
 // 3. Save a User________________________
-export const saveUser = (req, res) => {
+const saveUser = (req, res) => {
 
     const { Id, gender, name, contact, address, photoUrl } = req.body
     if (Id && gender && name && contact && address && photoUrl) {
@@ -59,7 +59,7 @@ export const saveUser = (req, res) => {
 }
 
 // 4. Update a User________________________
-export const updateUser = (req, res) => {
+const updateUser = (req, res) => {
 
     const { Id, gender, name, contact, address, photoUrl } = req.body
     if (!Id || !gender || !name || !contact || !address || !photoUrl) {
@@ -82,7 +82,7 @@ export const updateUser = (req, res) => {
 }
 
 // 5. Update Random Users________________________
-export const updateRandomUsers = (req, res) => {
+const updateRandomUsers = (req, res) => {
 
     const { Id, gender, name, contact, address, photoUrl } = req.body
     const updatedUser = { Id, gender, name, contact, address, photoUrl }
@@ -111,7 +111,7 @@ export const updateRandomUsers = (req, res) => {
 }
 
 // 6. Delete a User________________________
-export const deleteUser = (req, res) => {
+const deleteUser = (req, res) => {
     const { Id } = req.body
     const selectedUser = parsedData.filter(user => user.Id !== Number(Id))
 
@@ -128,3 +128,5 @@ export const deleteUser = (req, res) => {
         res.status(403).json({ error: "User not found! Please type the correct Id." })
     }
 }
+
+export default { updateRandomUsers,deleteUser, updateUser, saveUser, allUser, randomUser}
