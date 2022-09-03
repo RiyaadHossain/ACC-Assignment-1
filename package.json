@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "In this project, I have written the first assignment of Programming Hero.",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
