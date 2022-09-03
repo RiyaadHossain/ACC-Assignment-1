@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path')
+import { readFileSync, writeFileSync } from 'fs'
+import path from 'path'
 const file = path.join(process.cwd(), "data.json")
-let data = fs.readFileSync(file)
+let data = readFileSync(file)
 let parsedData = JSON.parse(data)
 
 // 1. Get Random User________________________
@@ -46,7 +46,7 @@ module.exports.saveUser = (req, res) => {
             res.status(403).json({ error: "Id is already Exist" })
         } else if (typeof Number(Id) == "number" && Number(Id) > 0) {
             parsedData.push({ Id, gender, name, contact, address, photoUrl })
-            fs.writeFileSync(file, JSON.stringify(parsedData))
+            writeFileSync(file, JSON.stringify(parsedData))
             res.status(201).json({ message: "Your data has been saved successfully." })
         } else {
             res.status(403).json({ error: "The Id you privided isn't correct!" })
@@ -73,7 +73,7 @@ module.exports.updateUser = (req, res) => {
         res.status(403).json({ error: "User data not found" })
     } else if (updatedUser) {
         parsedData = parsedData.map(user => user.Id != Number(Id) ? user : updatedUser)
-        fs.writeFileSync(file, JSON.stringify(parsedData))
+        writeFileSync(file, JSON.stringify(parsedData))
         res.status(201).json({ message: "User data updated successfully" })
     } else {
         res.status(500).json({ error: "Internal Server Error" })
@@ -105,7 +105,7 @@ module.exports.updateRandomUsers = (req, res) => {
         parsedData = parsedData.map(data => data.Id == user.Id ? { ...updatedUser, Id: user.Id } : data)
     }
 
-    fs.writeFileSync(file, JSON.stringify(parsedData))
+    writeFileSync(file, JSON.stringify(parsedData))
     res.status(201).json({ message: "Users data updated successfully" })
 
 }
@@ -122,7 +122,7 @@ module.exports.deleteUser = (req, res) => {
         res.status(403).json({ error: "User not found! Please type the correct Id." })
     }
     else if (selectedUser) {
-        fs.writeFileSync(file, JSON.stringify(selectedUser))
+        writeFileSync(file, JSON.stringify(selectedUser))
         res.status(201).send({ message: "User deleted successfully." })
     } else {
         res.status(403).json({ error: "User not found! Please type the correct Id." })
