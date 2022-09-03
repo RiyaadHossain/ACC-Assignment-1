@@ -1,12 +1,12 @@
 import express from "express"
-import route from "./router/userRoute"
+import userRoute from "./router/userRoute"
 const PORT = process.env.PORT || 5000
 
 const app = express()
 
 // Middleware
 app.use(express.json())
-app.use("/user", route)
+app.use("/user", userRoute)
 
 // Health Check
 app.get("/", (req, res) => {
