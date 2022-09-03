@@ -5,7 +5,7 @@ let data = readFileSync(file)
 let parsedData = JSON.parse(data)
 
 // 1. Get Random User________________________
-module.exports.randomUser = (req, res) => {
+export const randomUser = (req, res) => {
 
     const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -21,7 +21,7 @@ module.exports.randomUser = (req, res) => {
 }
 
 // 2. Get All Users________________________
-module.exports.allUser = (req, res) => {
+export const allUser = (req, res) => {
 
     const { limit } = req.query
 
@@ -36,7 +36,7 @@ module.exports.allUser = (req, res) => {
 }
 
 // 3. Save a User________________________
-module.exports.saveUser = (req, res) => {
+export const saveUser = (req, res) => {
 
     const { Id, gender, name, contact, address, photoUrl } = req.body
     if (Id && gender && name && contact && address && photoUrl) {
@@ -59,7 +59,7 @@ module.exports.saveUser = (req, res) => {
 }
 
 // 4. Update a User________________________
-module.exports.updateUser = (req, res) => {
+export const updateUser = (req, res) => {
 
     const { Id, gender, name, contact, address, photoUrl } = req.body
     if (!Id || !gender || !name || !contact || !address || !photoUrl) {
@@ -82,7 +82,7 @@ module.exports.updateUser = (req, res) => {
 }
 
 // 5. Update Random Users________________________
-module.exports.updateRandomUsers = (req, res) => {
+export const updateRandomUsers = (req, res) => {
 
     const { Id, gender, name, contact, address, photoUrl } = req.body
     const updatedUser = { Id, gender, name, contact, address, photoUrl }
@@ -111,7 +111,7 @@ module.exports.updateRandomUsers = (req, res) => {
 }
 
 // 6. Delete a User________________________
-module.exports.deleteUser = (req, res) => {
+export const deleteUser = (req, res) => {
     const { Id } = req.body
     const selectedUser = parsedData.filter(user => user.Id !== Number(Id))
 

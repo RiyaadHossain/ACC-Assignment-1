@@ -1,5 +1,5 @@
 const express = require('express');
-const userController = require('../controller/userController');
+import userController from '../controller/userController'
 
 const route = express.Router()
 
@@ -10,4 +10,4 @@ route.patch("/update", userController.updateUser)
 route.patch("/bulk-update", userController.updateRandomUsers)
 route.delete("/delete", userController.deleteUser)
 
-module.exports = route
+export default route
